@@ -1,0 +1,26 @@
+{
+  "name": "haunted-merge-update",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Serves content hot updates (signed manifests and pack files) to the release game over HTTPS.",
+  "scripts": {
+    "dev": "cross-env DOTENV_CONFIG_PATH=./config/.env.development tsx -r dotenv/config ./src/main.ts",
+    "build": "shx rm -rf dist && tsc --project tsconfig.json",
+    "start": "cross-env DOTENV_CONFIG_PATH=./config/.env.production node -r dotenv/config ./dist/main.js",
+    "type-check": "tsc --noEmit",
+    "smoke": "tsx ./scripts/smoke.ts"
+  },
+  "engines": {
+    "node": ">=20.6.0"
+  },
+  "dependencies": {
+    "cross-env": "^10.1.0",
+    "dotenv": "^17.4.2"
+  },
+  "devDependencies": {
+    "@types/node": "^26.1.2",
+    "shx": "^0.4.0",
+    "tsx": "^4.23.1",
+    "typescript": "^7.0.2"
+  }
+}
